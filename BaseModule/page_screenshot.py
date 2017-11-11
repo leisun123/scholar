@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
+
 from multiprocessing.dummy import Pool
 from BaseModule.url_cache import run as redis_cache
 
