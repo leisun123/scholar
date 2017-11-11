@@ -11,7 +11,9 @@
 """
 # -*- coding: utf-8 -*-
 from queue import Queue
-
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
 import time
 from selenium import webdriver
 from db.SqlHelper import *
