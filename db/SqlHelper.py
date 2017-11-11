@@ -1,4 +1,8 @@
-2#coding:utf-8
+from nameparser import HumanName
+
+from utils.set_value import set_value
+
+#coding:utf-8
 """
 @file:      SqlHelper
 @author:    IsolationWyn
@@ -60,8 +64,15 @@ class ObjectAttribute(BaseModel):
     object_id = Column(String(36), nullable=False)
     name = Column(String(255), nullable=False)
     value = Column(LargeBinary)
-
-
+    
+    def decode_value(self):
+        data = simplejson.loads(bytes.decode(self.value))
+        return data
+    
+    @staticmethod
+    def update_value(sc_info, **kwargs):
+        return bytes(simplejson.dumps(sc_info.update(kwargs)), encoding='utf8')
+    
 class Object(BaseModel):
     __tablename__ = 'objects'
 
@@ -71,11 +82,13 @@ class Object(BaseModel):
     name = Column(String(255), nullable=False, unique=True)
     created_at = Column(DateTime, nullable=False)
 
+
 class Organization(BaseModel):
     __tablename__='organizations'
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     name = Column(String(255))
+
 
 class User(BaseModel):
     __tablename__ = 'users'
@@ -137,7 +150,7 @@ class SqlHelper(ISqlHelper):
             self.engine = create_engine(DB_CONFIG['DB_CONNECT_STRING'])
             DB_Session = sessionmaker(bind=self.engine)
             self.session = DB_Session()
-        
+            
     def init_db(self):
         BaseModel.metadata.create_all(bind=self.engine)
         #BaseModel.metadata.tables["organizations"].create(bind=self.engine)
@@ -176,9 +189,9 @@ class SqlHelper(ISqlHelper):
         self.session.commit()
         
 
-    def drop_db(self):
-        BaseModel.metadata.drop_all(self.engine)
-        print("FINISH")
+    # def drop_db(self):
+    #     BaseModel.metadata.drop_all(self.engine)
+    #     print("FINISH")
         
     def insert_scholar(self, **values):
         tmp_id = str(uuid4())
@@ -381,6 +394,48 @@ class SqlHelper(ISqlHelper):
                      "organization": og_name})
         self.session.commit()
     
+    
+    
+
+    def Unknow_clean(self, organization_name, email_str):
+        email_match_res = self.session.query(User).filter(User.organization == "Unknown").filter(User.email.contains(email_str)).all()
+        print("Finally Find {} scholars whose email end with {}".format(len(email_match_res), email_str) )
+        og_tmp = self.session.query(Organization).filter(Organization.name == organization_name).first()
+        if og_tmp:
+            og_id = og_tmp.id
+        else:
+            og = Organization(
+                name = organization_name
+            )
+            self.session.add(og)
+            self.session.flush()
+            og_id = og.id
+        for i in email_match_res:
+            self.session.query(User)\
+                .filter(User.id == i.id)\
+                .update({"organization_id": og_id,
+                         "organization": organization_name
+            })
+            res = self.session.query(ObjectAttribute)\
+                .filter(ObjectAttribute.name == "profile")\
+                .filter(ObjectAttribute.object_id == i.object_id)\
+                .first()
+            sc_tmp = simplejson.loads(bytes.decode(res.value))
+            sc_tmp.update({
+                "organization": organization_name
+            })
+            print(sc_tmp)
+            self.session.query(ObjectAttribute)\
+                .filter(ObjectAttribute.name == "profile")\
+                .filter(ObjectAttribute.object_id == i.object_id)\
+                .update({ObjectAttribute.value: bytes(simplejson.dumps(sc_tmp), encoding='utf8')})
+            self.session.commit()
+            print("{}".format(i.name))
+            print("-------------------------------------------------------------------------------------------------------------------")
+            
+            
+        
+    
     def update(self, conditions=None,value=None):
         pass
     
@@ -393,22 +448,127 @@ class SqlHelper(ISqlHelper):
 if __name__ == '__main__':
     sqlhelper = SqlHelper(logger=get_logger("test"))
     # sqlhelper.organization_clean(old_id=10, modify_id=13)
-    count = sqlhelper.session.query(User).filter(User.scope == "").count()
-    print(count)
-        
-        
+    # res = sqlhelper.session.query(User).filter(User.organization==None).all()
+    # for i in res:
+    #     try:
+    #         sqlhelper.session.query(User).filter(User.id==i.id).update({
+    #         "organization": "Unknown",
+    #         "organization_id": 13
+    #         })
+    #         print("Finish One")
+    #     except Exception as e:
+    #         print(e)
+    # sqlhelper.session.commit()
+    # res = sqlhelper.session.query(User).filter(User.scope =='').all()
+    # res2 =sqlhelper.session.query(Organization).all()
+    # res3 = [i.id for i in res2]
+    # count = 0
+    # for i in res:
+    #     if i.organization_id not in res3:
+    #         print(i.organization_id)
+    #         count = count + 1
+    # print(count)
+    
+    
+    # count = 0
+    # res = sqlhelper.session.query(Organization).all()
+    # for i in res:
+    #     n = sqlhelper.session.query(User).filter(User.organization_id == i.id).count()
+    #     count = n + count
+    # print(count)
     
     
     
-        
+    # dct = {"North Carolina State University": "ncsu.edu",
+    # "Georgia Institute of Technology": "gatech.edu",
+    # "University of Wisconsin-Madison": "wisc.edu",
+    # "Stanford University": "stanford.edu",
+    # "University of Maryland, College Park": "umd.edu",
+    # "University of California,Irvine": "uci.edu",
+    # "The Ohio State University": "osu.edu",
+    # "University of Colorado at Boulder": "Colorado.edu",
+    # "University of Illinois": "illinois.edu"}
+    # for k, v in  dct.items():
+    #     sqlhelper.Unknow_clean(k, v)
+    #     print("clean over")
+    # print("finish")
     
+    # organizations = sqlhelper.session.query(Organization).all()
+    # res = []
+    #
+    # for i in organizations:
+    #     num = sqlhelper.session.query(User).filter(and_(User.organization_id == i.id,
+    #                                  User.scope == '')).count()
+    #
+    #     if num < 40:
+    #         user_object = sqlhelper.session.query(User).filter(User.organization_id == i.id).first()
+    #         if user_object:
+    #             user_id = user_object.id
+    #             object_id = user_object.object_id
+    #
+    #             sqlhelper.session.query(UserGroup).filter(UserGroup.user_id == user_id).delete()
+    #             sqlhelper.session.query(User).filter(User.object_id == object_id).delete()
+    #             sqlhelper.session.query(Organization).filter(Organization.id == i.id).delete()
+    #             sqlhelper.session.query(Object).filter(Object.id == object_id).delete()
+    #             sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.object_id == object_id).delete()
+    #             sqlhelper.session.commit()
     
-    
-    
-    
-    
-    
-    
+    # n= 0
+    # res = sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.name == 'avatar').all()
+    # for i in res:
+    #
+    #     user_info = (bytes.decode(i.value))
+    #     if '.jpg' not in user_info:
+    #         n = n + 1
+    #         tmp = simplejson.loads(user_info)
+    #         print(tmp["website"], i.id)
+    # print(n)
+
+    # tmp = iter(sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.name == "profile").all())
+    # try:
+    #     while True:
+    #         iter_obj = next(tmp)
+    #         sc_info = iter_obj.decode_value()
+    #         if "lastName" not in sc_info:
+    #             if "name" in sc_info:
+    #                 if isinstance(sc_info["name"], list):
+    #                     sc_info["firstName"] = HumanName(sc_info["name"][0]).first
+    #                     sc_info["lastName"] = HumanName(sc_info["name"][0]).last
+    #                 else:
+    #                     sc_info["firstName"] = HumanName(sc_info["name"]).first
+    #                     sc_info["lastName"] = HumanName(sc_info["name"]).last
+    #             if "firstName" in sc_info:
+    #                 sc_info["firstName"] = HumanName(sc_info["firstName"]).first
+    #                 sc_info["lastName"] = HumanName(sc_info["firstName"]).last
+    #             else:
+    #                 sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.id == iter_obj.id).delete()
+    #                 sc_info["lastName"] = "error"
+    #
+    #
+    #
+    #         if sc_info['lastName'] is None or sc_info['lastName'] == "":
+    #             if sc_info["firstName"]:
+    #                 iter_obj.value =  ObjectAttribute.update_value(sc_info,
+    #                                       firstName = HumanName(sc_info["firstName"]).first,
+    #                                       lastName = HumanName(sc_info["lastName"]).last)
+    #                 if sqlhelper.session.query(User)\
+    #                         .filter(User.object_id == iter_obj.object_id).first():
+    #                     sqlhelper.session.query(User)\
+    #                         .filter(User.object_id == iter_obj.object_id)\
+    #                         .update({"name": sc_info["firstName"] + " " + sc_info["lastName"]
+    #                         })
+    #                     print("firstName", sc_info["firstName"])
+    #                     print("lastName", sc_info["lastName"])
+    #                     print("Name", sqlhelper.session.query(User).filter(User.object_id == iter_obj.object_id).first().name)
+    #                     print("firstName",sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.id == iter_obj.id).first().id)
+    #                     #print("lastName",sqlhelper.session.query(ObjectAttribute).filter(ObjectAttribute.id == iter_obj.id).first().decode_value()["lastName"])
+    #                     print("-------------------------------------------------------------------")
+    #
+    #
+    # except StopIteration as e:
+    #     print(e)
+    # finally:
+    #     print("End")
     
     
     

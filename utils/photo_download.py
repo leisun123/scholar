@@ -16,7 +16,6 @@ from utils.connection import fetch
 from utils.logger import get_logger
 import requests
 
-
 def download(url,user_id,logger):
     try:
         tmp = fetch(url,decode=False)

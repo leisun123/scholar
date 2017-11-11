@@ -28,16 +28,17 @@ def SelenuimParser(proxy_manager, user_agent, use_proxy):
 if __name__ == '__main__':
    driver = webdriver.Chrome()
    driver.get("http://eng.auburn.edu/aero/faculty/")
-   html_source = (driver.page_source)
-   print(html_source)
-   from utils.connection import *
-   email = extract("//p[contains(text(),'@')]/./text()", html_source)
-   print(email)
-   import re
-   regex = r"([\w\.\-]+@[\w\.\-]+)"
-   
-   
-   print("-------------------------------------------")
-   email = re.search(regex, html_source).group()
-   print(email)
+   print(driver.session_id)
+   # html_source = (driver.page_source)
+   # print(html_source)
+   # from utils.connection import *
+   # email = extract("//p[contains(text(),'@')]/./text()", html_source)
+   # print(email)
+   # import re
+   # regex = r"([\w\.\-]+@[\w\.\-]+)"
+   #
+   #
+   # print("-------------------------------------------")
+   # email = re.search(regex, html_source).group()
+   # print(email)
    
