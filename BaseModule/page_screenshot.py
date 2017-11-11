@@ -1,7 +1,10 @@
 from multiprocessing.dummy import Pool
+from BaseModule.url_cache import run as redis_cache
 
 import requests
 from BaseModule.url_cache import redis_obj
+
+redis_cache()
 def run(url, id):
     try:
         res = requests.post("http://localhost:5050", data={"url":url,"output":"{}.jpg".format(id)})
