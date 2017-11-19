@@ -15,7 +15,8 @@ import redis
 
 from db.SqlHelper import *
 
-redis_obj = redis.Redis(host='localhost', port=6379, db=1)
+redis_obj = redis.Redis(host='localhost', port=6379, db=0)
+redis_obj.flushdb()
 
 def run():
     sqlhelper = SqlHelper(logger=get_logger("test"))
@@ -24,19 +25,22 @@ def run():
         while True:
             iter_tmp = next(sc_info_list)
             sc_info = iter_tmp.decode_value()
-            
+
             user_obj = sqlhelper.session.query(User).filter(User.object_id == iter_tmp.object_id).first()
             user_id = user_obj.id if user_obj else None
             if "website" in sc_info.keys():
                 sc_website = sc_info["website"]
             else:
                 sc_website = None
-            
+
             if user_id and sc_website:
                 if re.match(r'^https?:/{2}\w.+$', sc_website):
                     print(sc_website)
-                    redis_obj.set(user_id, sc_website)
+                    redis_obj.rpush("scholar","{}  {}".format(user_id, sc_website))
     except StopIteration as e:
         print(e)
     finally:
         print("---------------------Cache  Over-------------------------")
+
+if __name__ == '__main__':
+    run()

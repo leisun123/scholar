@@ -19,7 +19,7 @@ var service = server.listen(port, function (request, response) {
         var page = webPage.create();
         page.viewportSize = {
             width: 1024
-        }
+        };
         page.settings.resourceTimeout = 20000;//timeout is 20s
         // 页面错误捕捉
         page.onError = function (msg, trace) {
