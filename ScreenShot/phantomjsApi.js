@@ -17,9 +17,7 @@ var service = server.listen(port, function (request, response) {
         // 创建page
         var webPage = require('webpage');
         var page = webPage.create();
-        page.viewportSize = {
-            width: 1024
-        };
+
         page.settings.resourceTimeout = 20000;//timeout is 20s
         // 页面错误捕捉
         page.onError = function (msg, trace) {
@@ -46,8 +44,10 @@ var service = server.listen(port, function (request, response) {
             console.error(msgStack.join('\n'));
             phantom.exit(1);
         };
-
-
+        page.viewportSize = {
+            width: 1024,
+            height: 2000
+        };
         page.open(url, function (status) {
             // if (status !== 'success') {
             //     console.log('Unable to load the address!');
@@ -56,7 +56,8 @@ var service = server.listen(port, function (request, response) {
             //         page.render(output);
             //     }, 1000);
             // }
-            if(status == 'success') {
+            if (status == 'success') {
+
                 page.render(output)
                 response.status = 200;
                 response.write(page.content)

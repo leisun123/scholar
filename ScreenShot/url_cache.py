@@ -15,8 +15,7 @@ import redis
 
 from db.SqlHelper import *
 
-redis_obj = redis.Redis(host='localhost', port=6379, db=0)
-redis_obj.flushdb()
+redis_obj = redis.Redis(host='localhost', port=6379, db=10)
 
 def run():
     sqlhelper = SqlHelper(logger=get_logger("test"))
@@ -36,7 +35,8 @@ def run():
             if user_id and sc_website:
                 if re.match(r'^https?:/{2}\w.+$', sc_website):
                     print(sc_website)
-                    redis_obj.rpush("scholar","{}  {}".format(user_id, sc_website))
+                    #redis_obj.rpush("scholar","{}  {}".format(user_id, sc_website))
+                    redis_obj.set(user_id, sc_website)
     except StopIteration as e:
         print(e)
     finally:

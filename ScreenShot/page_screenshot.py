@@ -10,20 +10,24 @@ from ScreenShot.url_cache import redis_obj
 
 def run(url, id):
     try:
-        res = requests.post("http://localhost:5050", data={"url":url,"output":"{}.jpg".format(id)})
-        sleep(1)
-        print(url)
+        _url = str(url.decode('utf-8'))
+        _id = int(id.decode('utf-8'))
+        res = requests.post("http://localhost:5050", data={"url":_url,"output":"{}.jpg".format(_id)})
+        redis_obj.delete(id)
+        print(_url)
     except Exception as e:
         print(e)
         
         
 pool = Pool(processes=10)
 
-while True:
-    tmp = redis_obj.lpop("scholar").decode('utf-8').split("  ")
-    id, url = tmp[0], tmp[1]
-    print(id, url)
-    run(url=url, id=id)
+for i in redis_obj.scan_iter():
+    id = i
+    url = redis_obj.get(i)
+# while redis_obj.llen("scholar"):
+#     tmp = redis_obj.lpop("scholar").decode('utf-8').split("  ")
+#     id, url = tmp[0], tmp[1]
+    pool.apply_async(run, args=(url, id))
     
 pool.close()
 pool.join()
