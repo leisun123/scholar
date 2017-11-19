@@ -65,3 +65,4 @@ TaskFeed/__pycache__/
 db/__pycache__/
 utils/__pycache__/
 /__pycache__
+ScholarConfig/config.py

@@ -39,4 +39,4 @@ def run():
     except StopIteration as e:
         print(e)
     finally:
-        redis_obj.save()
+        print("---------------------Cache  Over-------------------------")
