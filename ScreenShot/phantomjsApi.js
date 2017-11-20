@@ -46,9 +46,9 @@ var service = server.listen(port, function (request, response) {
         };
         page.viewportSize = {
             width: 1024,
-            height: 2000
+            height: 200
         };
-        page.open(url, function (status) {
+        page.onLoadFinished(url, function (status) {
             // if (status !== 'success') {
             //     console.log('Unable to load the address!');
             // } else {
