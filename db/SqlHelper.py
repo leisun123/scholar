@@ -28,7 +28,7 @@ from db.ISqlHelper import ISqlHelper
 from uuid import uuid4
 
 from utils.logger import get_logger
-from utils.photo_download import download
+
 
 BaseModel = declarative_base()
 
@@ -571,6 +571,17 @@ if __name__ == '__main__':
     #     print("End")
     
     
+    major_count = 0
+    avatar_count = 0
+    website_count = 0
+    
+    res = iter(sqlhelper.session.query(ObjectAttribute)\
+               .filter(ObjectAttribute.name == 'profile').all())
+    while True:
+        data = next(res).decode_value()
+        if data["major"] == None or data["major"] == "":
+            major_count = major_count + 1
+        
     
     
     

@@ -10,6 +10,11 @@
             --
 """
 import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
+
+
+import os
 def current_file_name(path):
     tmp = os.path.realpath(os.path.join(path, '..')).split('\\')
     return tmp[len(tmp)-1][0:-3]

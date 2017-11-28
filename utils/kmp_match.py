@@ -9,6 +9,10 @@
 @description:
             --
 """
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
+
 
 def kmp_match(text, pattern):
     def init_prefix_table(word):

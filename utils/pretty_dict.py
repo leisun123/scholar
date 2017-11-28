@@ -9,6 +9,11 @@
 @description:
             --
 """
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
+
+
 def pretty_dict(obj, indent=' '):
     def _pretty(obj, indent):
         for i, tup in enumerate(obj.items()):

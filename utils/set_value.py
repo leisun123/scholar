@@ -9,6 +9,11 @@
 @description:
             --
 """
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd().split('scholar')[0],'scholar'))
+
+
 from nameparser import HumanName
 def set_value(name, email, organization, website, major, avatar=None):
     
