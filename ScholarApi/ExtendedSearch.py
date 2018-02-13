@@ -24,9 +24,10 @@ from sqlalchemy.sql import ClauseElement
 from ScholarApi.model import History
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wyn:weiaizq1314@39.104.50.183:5432/extented_sc'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wyn:weiaizq1314@47.254.34.29:5432/extented_sc'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['FLASKY_SLOW_DB_QUERY_TIME'] = 2
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -65,43 +66,99 @@ def after_request(response):
 
 @app.route("/search", methods=["GET"])
 def search():
-    q = request.args.get("q")
     
-    user_id = request.args.get("userId")
-    
-    result = db.engine.execute(\
-        "select * from articles where authors ~ '{}'\
-              limit 20"\
-            .format(q)).fetchall()
-    
-    res = {}
-    res["count"] = len(result)
-    res["data"] = []
-    
-    for i in result:
-        db.session.add(
-            History(
-                user_id = user_id,
-                article_id = i.id
-            )
-        )
-        if len(str(i.authors).replace("\u00a0", "").replace("\"\"","").split(",")) < 10:
-            res["data"].append(
-                {
-                "id": i.id,
-                "title": i.title,
-                "year": i.year,
-                "link": i.link,
-                "bibtex": i.bibtex,
-                "summary": i.summary,
-                "google_id": i.google_id,
-                "pdf_temp_url": i.pdf_temp_url,
-                "keywords": i.keywords,
-                "authors": i.authors,
-                    }
-                )
-    
-    return jsonify(res)
+        res = {}
+        res["state"] = {}
+    #try:
+        author = request.args.get("author")
+        thesis = request.args.get("thesis")
+        keywords = request.args.get("keywords")
+        if isinstance(keywords, list):
+            keywords = " ".join(keywords)
+        offset = request.args.get("offset")
+        limit = request.args.get("limit")
+        user_id = request.args.get("userId")
+        
+        
+        nonon_params = []
+        
+        if len(author):
+            nonon_params.append(("authors",  author))
+        if len(thesis):
+            nonon_params.append({"title": thesis})
+        if len(keywords):
+            nonon_params.append("keywords", keywords)
+        
+        if len(nonon_params) == 0:
+            res["state"] = {
+                "code": 500,
+                "msg": "error"
+            }
+            return jsonify(res)
+        
+        else:
+            query = ' '.join(map(lambda  x: "{} ~ '{}' ".\
+                    format(x[0], x[1]) , nonon_params))
+            
+        
+            
+            sql = "SELECT * , similarity({}, '{}') AS dist \
+                        from articles WHERE {}\
+                        ORDER BY {} DESC OFFSET {} LIMIT {}; \
+                        " \
+                    .format(nonon_params[0][0], \
+                            nonon_params[0][1], \
+                            query, \
+                            "dist", \
+                            offset,
+                            limit)
+            
+            result = db.engine.execute(sql).fetchall()
+            res["data"] = []
+            res["state"]["code"] = 200
+            res["state"]["msg"] = "ok"
+            res["count"] = len(result)
+            
+            tmp = iter(result)
+            try:
+                while True:
+                    i = next(tmp)
+                    print(i.title)
+                    
+                #db.session.add(
+                #    History(
+                #        user_id = user_id,
+                #        article_id = i.id
+                #    )
+                #)
+                    if  len(str(i.authors)) < 100:
+                        authors = (i.authors).replace("\u00a0", "").replace("\"\"","").split(",")
+                        print(authors)
+                        res["data"].append(
+                            {
+                            "id": i.id,
+                            "title": i.title,
+                            "year": i.year,
+                            "link": i.link,
+                            "bibtex": i.bibtex,
+                            "summary": i.summary,
+                            "google_id": i.google_id,
+                            "pdf_temp_url": i.pdf_temp_url,
+                            "keywords": i.keywords,
+                            "authors": authors
+                                }
+                            )
+            except StopIteration:
+                return jsonify(res)
+            # except Exception as e:
+            #     res["state"] =  {
+            #             "code": 408,
+            #             "msg": "timeout"
+            #             }
+            #     print(e)
+            #     return jsonify(
+            #             res
+            #         )
 
 def get_or_create(session, model, **kwargs):
     instance = session.query(model).filter_by(**kwargs).first()
@@ -114,5 +171,6 @@ def get_or_create(session, model, **kwargs):
         return instance, False
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=2000)
     #manager.run()
+    

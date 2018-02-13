@@ -251,3 +251,5 @@ class SubjectArticle(db.Model):
     article_id = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
+
+
