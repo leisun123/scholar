@@ -69,14 +69,14 @@ def get_user_agent():
 
 def create_ssh_tunnel():
         server = SSHTunnelForwarder(
-                ('13.113.193.188',22),
+                ('',22),
                 ssh_username="ubuntu",
-                ssh_pkey="C:/Users/tonylu/Desktop/rainbow(1).pem",
-                remote_bind_address=('localhost',3306)
+                ssh_pkey="~/Desktop/id_rsa",
+                remote_bind_address=('localhost',5432)
                 )
         server.start()
-        
-        enginee = create_engine("mysql+pymysql://root:root@localhost:{}/eb_cp".format(server.local_bind_port),\
+
+        enginee = create_engine("postgresql://wyn:weiaizq1314@localhost:{}/extented_sc".format(server.local_bind_port),\
                                 pool_size=30,
                                 max_overflow=10)
         print("DB Successfully Connect!")
