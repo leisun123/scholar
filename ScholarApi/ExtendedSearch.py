@@ -78,6 +78,8 @@ def search():
         offset = request.args.get("offset")
         limit = request.args.get("limit")
         user_id = request.args.get("userId")
+        year_begin = request.args.get("yearBegin")
+        year_end = request.args.get("yearEnd")
         
         
         nonon_params = []
@@ -100,14 +102,16 @@ def search():
             query = ' AND '.join(map(lambda  x: "{} ~ '{}'".\
                     format(x[0], x[1]) , nonon_params))
             
-        
+            year_filter = "year < {} AND year > {} AND".format(year_end if year_end else 2018, \
+                                                           year_begin if year_begin else 1900)
             
             sql = "SELECT * , similarity({}, '{}') AS dist \
-                        from articles WHERE {}\
+                        from articles WHERE {} {}\
                         ORDER BY {} DESC OFFSET {} LIMIT {}; \
                         " \
                     .format(nonon_params[0][0], \
                             nonon_params[0][1], \
+                            year_filter,
                             query, \
                             "dist", \
                             offset,
