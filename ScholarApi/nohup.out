@@ -1,0 +1,2074 @@
+[2018-02-14 08:28:36 +0800] [1057] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:28:36 +0800] [1057] [INFO] Listening at: http://127.0.0.1:2000 (1057)
+[2018-02-14 08:28:36 +0800] [1057] [INFO] Using worker: sync
+[2018-02-14 08:28:36 +0800] [1060] [INFO] Booting worker with pid: 1060
+[2018-02-14 08:28:37 +0800] [1061] [INFO] Booting worker with pid: 1061
+[2018-02-14 08:28:37 +0800] [1063] [INFO] Booting worker with pid: 1063
+[2018-02-14 08:28:37 +0800] [1064] [INFO] Booting worker with pid: 1064
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:29:32,551] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: 'SELECT * , similarity(authors, \'Jerry\') AS dist                         from articles WHERE authors ~ \'Jerry\'  keywords ~ \'["213"]\'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         '] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:29:38,181] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: 'SELECT * , similarity(authors, \'Jerry\') AS dist                         from articles WHERE authors ~ \'Jerry\'  keywords ~ \'["213"]\'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         '] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:31:44,395] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:31:49,084] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:33:57,402] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:33:58,764] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:00,511] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:14,443] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:15,361] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:16,290] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:29 +0800] [1096] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:34:29 +0800] [1096] [INFO] Listening at: http://127.0.0.1:2000 (1096)
+[2018-02-14 08:34:29 +0800] [1096] [INFO] Using worker: sync
+[2018-02-14 08:34:29 +0800] [1099] [INFO] Booting worker with pid: 1099
+[2018-02-14 08:34:29 +0800] [1100] [INFO] Booting worker with pid: 1100
+[2018-02-14 08:34:29 +0800] [1101] [INFO] Booting worker with pid: 1101
+[2018-02-14 08:34:29 +0800] [1102] [INFO] Booting worker with pid: 1102
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:34:32,855] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:34:33,864] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:35:39 +0800] [1120] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:35:39 +0800] [1120] [INFO] Listening at: http://127.0.0.1:2000 (1120)
+[2018-02-14 08:35:39 +0800] [1120] [INFO] Using worker: sync
+[2018-02-14 08:35:39 +0800] [1123] [INFO] Booting worker with pid: 1123
+[2018-02-14 08:35:39 +0800] [1124] [INFO] Booting worker with pid: 1124
+[2018-02-14 08:35:39 +0800] [1125] [INFO] Booting worker with pid: 1125
+[2018-02-14 08:35:39 +0800] [1127] [INFO] Booting worker with pid: 1127
+[2018-02-14 08:35:43,407] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:36:10,914] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:36:11,899] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:36:13,147] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:36:28 +0800] [1120] [INFO] Handling signal: int
+[2018-02-14 08:36:28 +0800] [1124] [INFO] Worker exiting (pid: 1124)
+[2018-02-14 08:36:28 +0800] [1123] [INFO] Worker exiting (pid: 1123)
+[2018-02-14 08:36:28 +0800] [1125] [INFO] Worker exiting (pid: 1125)
+[2018-02-14 08:36:28 +0800] [1127] [INFO] Worker exiting (pid: 1127)
+[2018-02-14 08:36:29 +0800] [1120] [INFO] Shutting down: Master
+[2018-02-14 08:36:32 +0800] [1139] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:36:32 +0800] [1139] [INFO] Listening at: http://127.0.0.1:2000 (1139)
+[2018-02-14 08:36:32 +0800] [1139] [INFO] Using worker: sync
+[2018-02-14 08:36:32 +0800] [1142] [INFO] Booting worker with pid: 1142
+[2018-02-14 08:36:32 +0800] [1143] [INFO] Booting worker with pid: 1143
+[2018-02-14 08:36:32 +0800] [1144] [INFO] Booting worker with pid: 1144
+[2018-02-14 08:36:32 +0800] [1145] [INFO] Booting worker with pid: 1145
+[2018-02-14 08:36:58 +0800] [1150] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:36:58 +0800] [1150] [INFO] Listening at: http://127.0.0.1:2000 (1150)
+[2018-02-14 08:36:58 +0800] [1150] [INFO] Using worker: sync
+[2018-02-14 08:36:58 +0800] [1153] [INFO] Booting worker with pid: 1153
+[2018-02-14 08:36:58 +0800] [1155] [INFO] Booting worker with pid: 1155
+[2018-02-14 08:36:58 +0800] [1156] [INFO] Booting worker with pid: 1156
+[2018-02-14 08:36:58 +0800] [1158] [INFO] Booting worker with pid: 1158
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:37:08,522] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:37:10,437] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:37:41 +0800] [1171] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:37:41 +0800] [1171] [INFO] Listening at: http://127.0.0.1:2000 (1171)
+[2018-02-14 08:37:41 +0800] [1171] [INFO] Using worker: sync
+[2018-02-14 08:37:41 +0800] [1174] [INFO] Booting worker with pid: 1174
+[2018-02-14 08:37:41 +0800] [1175] [INFO] Booting worker with pid: 1175
+[2018-02-14 08:37:41 +0800] [1176] [INFO] Booting worker with pid: 1176
+[2018-02-14 08:37:41 +0800] [1177] [INFO] Booting worker with pid: 1177
+[2018-02-14 08:37:44,551] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:37:49,643] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "keywords"
+LINE 1: ...           from articles WHERE authors ~ 'Jerry'  keywords ~...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'  keywords ~ 'machine'                         ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:37:50,484] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2075, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 942, in execute
+    return self._execute_text(object, multiparams, params)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1104, in _execute_text
+    statement, parameters
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) syntax error at or near "ANDkeywords"
+LINE 1: ...             from articles WHERE authors ~ 'Jerry'ANDkeyword...
+                                                             ^
+ [SQL: "SELECT * , similarity(authors, 'Jerry') AS dist                         from articles WHERE authors ~ 'Jerry'ANDkeywords ~ 'machine'                        ORDER BY dist DESC OFFSET 1 LIMIT 1000;                         "] (Background on this error at: http://sqlalche.me/e/f405)
+[2018-02-14 08:38:18 +0800] [1185] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:38:18 +0800] [1185] [INFO] Listening at: http://127.0.0.1:2000 (1185)
+[2018-02-14 08:38:18 +0800] [1185] [INFO] Using worker: sync
+[2018-02-14 08:38:18 +0800] [1188] [INFO] Booting worker with pid: 1188
+[2018-02-14 08:38:18 +0800] [1189] [INFO] Booting worker with pid: 1189
+[2018-02-14 08:38:19 +0800] [1190] [INFO] Booting worker with pid: 1190
+[2018-02-14 08:38:19 +0800] [1191] [INFO] Booting worker with pid: 1191
+[2018-02-14 08:39:08 +0800] [1202] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:39:08 +0800] [1202] [INFO] Listening at: http://127.0.0.1:2000 (1202)
+[2018-02-14 08:39:08 +0800] [1202] [INFO] Using worker: sync
+[2018-02-14 08:39:08 +0800] [1205] [INFO] Booting worker with pid: 1205
+[2018-02-14 08:39:08 +0800] [1205] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:39:08 +0800] [1205] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:39:08 +0800] [1205] [INFO] Worker exiting (pid: 1205)
+[2018-02-14 08:39:08 +0800] [1202] [INFO] Shutting down: Master
+[2018-02-14 08:39:08 +0800] [1202] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:39:46 +0800] [1210] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:39:46 +0800] [1210] [INFO] Listening at: http://127.0.0.1:2000 (1210)
+[2018-02-14 08:39:46 +0800] [1210] [INFO] Using worker: sync
+[2018-02-14 08:39:46 +0800] [1213] [INFO] Booting worker with pid: 1213
+[2018-02-14 08:39:46 +0800] [1213] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:39:46 +0800] [1213] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:39:46 +0800] [1213] [INFO] Worker exiting (pid: 1213)
+[2018-02-14 08:39:46 +0800] [1214] [INFO] Booting worker with pid: 1214
+[2018-02-14 08:39:46 +0800] [1214] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:39:46 +0800] [1214] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:39:46 +0800] [1214] [INFO] Worker exiting (pid: 1214)
+[2018-02-14 08:39:46 +0800] [1210] [INFO] Shutting down: Master
+[2018-02-14 08:39:46 +0800] [1210] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:40:04 +0800] [1215] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:40:04 +0800] [1215] [INFO] Listening at: http://127.0.0.1:2000 (1215)
+[2018-02-14 08:40:04 +0800] [1215] [INFO] Using worker: sync
+[2018-02-14 08:40:04 +0800] [1218] [INFO] Booting worker with pid: 1218
+[2018-02-14 08:40:04 +0800] [1218] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:40:04 +0800] [1218] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:40:04 +0800] [1218] [INFO] Worker exiting (pid: 1218)
+[2018-02-14 08:40:04 +0800] [1215] [INFO] Shutting down: Master
+[2018-02-14 08:40:04 +0800] [1215] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:40:46 +0800] [1228] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:40:46 +0800] [1228] [INFO] Listening at: http://127.0.0.1:5000 (1228)
+[2018-02-14 08:40:46 +0800] [1228] [INFO] Using worker: sync
+[2018-02-14 08:40:46 +0800] [1231] [INFO] Booting worker with pid: 1231
+[2018-02-14 08:40:46 +0800] [1231] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:40:46 +0800] [1231] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:40:46 +0800] [1231] [INFO] Worker exiting (pid: 1231)
+[2018-02-14 08:40:46 +0800] [1228] [INFO] Shutting down: Master
+[2018-02-14 08:40:46 +0800] [1228] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:43:15 +0800] [1057] [INFO] Handling signal: term
+[2018-02-14 08:43:15 +0800] [1064] [INFO] Worker exiting (pid: 1064)
+[2018-02-14 08:43:15 +0800] [1060] [INFO] Worker exiting (pid: 1060)
+[2018-02-14 08:43:15 +0800] [1061] [INFO] Worker exiting (pid: 1061)
+[2018-02-14 08:43:15 +0800] [1096] [INFO] Handling signal: term
+[2018-02-14 08:43:15 +0800] [1099] [INFO] Worker exiting (pid: 1099)
+[2018-02-14 08:43:15 +0800] [1100] [INFO] Worker exiting (pid: 1100)
+[2018-02-14 08:43:15 +0800] [1101] [INFO] Worker exiting (pid: 1101)
+[2018-02-14 08:43:15 +0800] [1102] [INFO] Worker exiting (pid: 1102)
+[2018-02-14 08:43:15 +0800] [1150] [INFO] Handling signal: term
+[2018-02-14 08:43:15 +0800] [1153] [INFO] Worker exiting (pid: 1153)
+[2018-02-14 08:43:15 +0800] [1155] [INFO] Worker exiting (pid: 1155)
+[2018-02-14 08:43:15 +0800] [1156] [INFO] Worker exiting (pid: 1156)
+[2018-02-14 08:43:15 +0800] [1158] [INFO] Worker exiting (pid: 1158)
+[2018-02-14 08:43:15 +0800] [1171] [INFO] Handling signal: term
+[2018-02-14 08:43:15 +0800] [1174] [INFO] Worker exiting (pid: 1174)
+[2018-02-14 08:43:15 +0800] [1175] [INFO] Worker exiting (pid: 1175)
+[2018-02-14 08:43:15 +0800] [1176] [INFO] Worker exiting (pid: 1176)
+[2018-02-14 08:43:15 +0800] [1177] [INFO] Worker exiting (pid: 1177)
+[2018-02-14 08:43:15 +0800] [1185] [INFO] Handling signal: term
+[2018-02-14 08:43:15 +0800] [1188] [INFO] Worker exiting (pid: 1188)
+[2018-02-14 08:43:15 +0800] [1189] [INFO] Worker exiting (pid: 1189)
+[2018-02-14 08:43:15 +0800] [1190] [INFO] Worker exiting (pid: 1190)
+[2018-02-14 08:43:15 +0800] [1191] [INFO] Worker exiting (pid: 1191)
+[2018-02-14 08:43:15 +0800] [1063] [INFO] Worker exiting (pid: 1063)
+[2018-02-14 08:43:15 +0800] [1057] [INFO] Shutting down: Master
+[2018-02-14 08:43:17 +0800] [1150] [INFO] Shutting down: Master
+[2018-02-14 08:43:17 +0800] [1171] [INFO] Shutting down: Master
+[2018-02-14 08:43:17 +0800] [1185] [INFO] Shutting down: Master
+[2018-02-14 08:43:17 +0800] [1139] [CRITICAL] WORKER TIMEOUT (pid:1145)
+[2018-02-14 08:43:17 +0800] [1096] [INFO] Shutting down: Master
+[2018-02-14 08:43:17 +0800] [1241] [INFO] Booting worker with pid: 1241
+[2018-02-14 08:43:17 +0800] [1243] [INFO] Booting worker with pid: 1243
+[2018-02-14 08:43:17 +0800] [1243] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1243] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1244] [INFO] Booting worker with pid: 1244
+[2018-02-14 08:43:17 +0800] [1139] [INFO] Handling signal: hup
+[2018-02-14 08:43:17 +0800] [1139] [INFO] Hang up: Master
+[2018-02-14 08:43:17 +0800] [1243] [INFO] Worker exiting (pid: 1243)
+[2018-02-14 08:43:17 +0800] [1244] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1244] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1244] [INFO] Worker exiting (pid: 1244)
+[2018-02-14 08:43:17 +0800] [1245] [INFO] Booting worker with pid: 1245
+[2018-02-14 08:43:17 +0800] [1245] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1247] [INFO] Booting worker with pid: 1247
+[2018-02-14 08:43:17 +0800] [1247] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1247] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1247] [INFO] Worker exiting (pid: 1247)
+[2018-02-14 08:43:17 +0800] [1246] [INFO] Booting worker with pid: 1246
+[2018-02-14 08:43:17 +0800] [1246] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1246] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1246] [INFO] Worker exiting (pid: 1246)
+[2018-02-14 08:43:17 +0800] [1248] [INFO] Booting worker with pid: 1248
+[2018-02-14 08:43:17 +0800] [1248] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:17 +0800] [1139] [INFO] Handling signal: term
+[2018-02-14 08:43:17 +0800] [1245] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1245] [INFO] Worker exiting (pid: 1245)
+[2018-02-14 08:43:17 +0800] [1248] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:17 +0800] [1248] [INFO] Worker exiting (pid: 1248)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 224, in run
+    handler()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 259, in handle_term
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 203, in run
+    super(Application, self).run()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 227, in run
+    self.halt()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 344, in halt
+    self.stop()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 244, in handle_chld
+    self.reap_workers()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 524, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2018-02-14 08:43:28 +0800] [1252] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:43:28 +0800] [1252] [INFO] Listening at: http://127.0.0.1:5000 (1252)
+[2018-02-14 08:43:28 +0800] [1252] [INFO] Using worker: sync
+[2018-02-14 08:43:28 +0800] [1255] [INFO] Booting worker with pid: 1255
+[2018-02-14 08:43:28 +0800] [1255] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:43:28 +0800] [1255] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:43:28 +0800] [1255] [INFO] Worker exiting (pid: 1255)
+[2018-02-14 08:43:28 +0800] [1252] [INFO] Shutting down: Master
+[2018-02-14 08:43:28 +0800] [1252] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:45:57 +0800] [1278] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:45:57 +0800] [1278] [INFO] Listening at: http://127.0.0.1:5000 (1278)
+[2018-02-14 08:45:57 +0800] [1278] [INFO] Using worker: sync
+[2018-02-14 08:45:57 +0800] [1281] [INFO] Booting worker with pid: 1281
+[2018-02-14 08:45:57 +0800] [1281] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:45:57 +0800] [1281] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:45:57 +0800] [1281] [INFO] Worker exiting (pid: 1281)
+[2018-02-14 08:45:57 +0800] [1278] [INFO] Shutting down: Master
+[2018-02-14 08:45:57 +0800] [1278] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:48:22 +0800] [1305] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:48:22 +0800] [1305] [INFO] Listening at: http://127.0.0.1:2000 (1305)
+[2018-02-14 08:48:22 +0800] [1305] [INFO] Using worker: sync
+[2018-02-14 08:48:22 +0800] [1308] [INFO] Booting worker with pid: 1308
+[2018-02-14 08:48:22 +0800] [1308] [ERROR] invalid syntax (ExtendedSearch.py, line 99)
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+[2018-02-14 08:48:22 +0800] [1308] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 135, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/util.py", line 352, in import_app
+    __import__(module)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 99
+    else:1:
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/arbiter.py", line 578, in spawn_worker
+    worker.init_process()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-02-14 08:48:22 +0800] [1308] [INFO] Worker exiting (pid: 1308)
+[2018-02-14 08:48:22 +0800] [1305] [INFO] Shutting down: Master
+[2018-02-14 08:48:22 +0800] [1305] [INFO] Reason: Worker failed to boot.
+[2018-02-14 08:49:02 +0800] [1315] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:49:02 +0800] [1315] [INFO] Listening at: http://127.0.0.1:2000 (1315)
+[2018-02-14 08:49:02 +0800] [1315] [INFO] Using worker: sync
+[2018-02-14 08:49:02 +0800] [1318] [INFO] Booting worker with pid: 1318
+[2018-02-14 08:49:02 +0800] [1319] [INFO] Booting worker with pid: 1319
+[2018-02-14 08:49:02 +0800] [1320] [INFO] Booting worker with pid: 1320
+[2018-02-14 08:49:02 +0800] [1321] [INFO] Booting worker with pid: 1321
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:49:08,393] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 782, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1186, in _do_get
+    self._dec_overflow()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1183, in _do_get
+    return self._create_connection()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 667, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 105, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2074, in execute
+    connection = self.contextual_connect(close_with_result=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 782, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1186, in _do_get
+    self._dec_overflow()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1183, in _do_get
+    return self._create_connection()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 667, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 105, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+ (Background on this error at: http://sqlalche.me/e/e3q8)
+/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+[2018-02-14 08:49:10,412] ERROR in app: Exception on /search [GET]
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 782, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1186, in _do_get
+    self._dec_overflow()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1183, in _do_get
+    return self._create_connection()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 667, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 105, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/wyn/scholar/ScholarApi/ExtendedSearch.py", line 116, in search
+    result = db.engine.execute(sql).fetchall()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2074, in execute
+    connection = self.contextual_connect(close_with_result=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 782, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1186, in _do_get
+    self._dec_overflow()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1183, in _do_get
+    return self._create_connection()
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/pool.py", line 667, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 105, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/wyn/scholar/wynenv/lib/python3.5/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+ (Background on this error at: http://sqlalche.me/e/e3q8)
+[2018-02-14 08:53:03 +0800] [1402] [INFO] Starting gunicorn 19.7.1
+[2018-02-14 08:53:03 +0800] [1402] [INFO] Listening at: http://127.0.0.1:2000 (1402)
+[2018-02-14 08:53:03 +0800] [1402] [INFO] Using worker: sync
+[2018-02-14 08:53:03 +0800] [1405] [INFO] Booting worker with pid: 1405
+[2018-02-14 08:53:03 +0800] [1406] [INFO] Booting worker with pid: 1406
+[2018-02-14 08:53:03 +0800] [1407] [INFO] Booting worker with pid: 1407
+[2018-02-14 08:53:03 +0800] [1408] [INFO] Booting worker with pid: 1408

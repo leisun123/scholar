@@ -24,7 +24,7 @@ from sqlalchemy.sql import ClauseElement
 from ScholarApi.model import History
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wyn:weiaizq1314@47.254.34.29:5432/extented_sc'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wyn:weiaizq1314@localhost:5432/extented_sc'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['FLASKY_SLOW_DB_QUERY_TIME'] = 2
 
@@ -34,14 +34,14 @@ migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
-@app.after_request
-def after_request(response):
-    for query in get_debug_queries():
-        if query.duration >= current_app.config["FLASKY_SLOW_DB_QUERY_TIME"]:
-            current_app.logger.warning(
-                'Slow query: %s\nParameters: %s\nDuration: %fs\nContext: %s\n' %\
-                    (query.statement, query.parameters, query.duration,query.context))
-    return response
+#@app.after_request
+#def after_request(response):
+#    for query in get_debug_queries():
+#        if query.duration >= current_app.config["FLASKY_SLOW_DB_QUERY_TIME"]:
+#            current_app.logger.warning(
+#                'Slow query: %s\nParameters: %s\nDuration: %fs\nContext: %s\n' %\
+#                    (query.statement, query.parameters, query.duration,query.context))
+#    return response
 
 # from sqlalchemy.ext.declarative import DeclarativeMeta
 # class AlchemyEncoder(simplejson.JSONEncoder):
@@ -64,12 +64,12 @@ def after_request(response):
 #             return fields
 #         return simplejson.JSONEncoder.default(self, obj)
 
-@app.route("/search", methods=["GET"])
+@app.route("/api/search", methods=["GET"])
 def search():
     
         res = {}
         res["state"] = {}
-    #try:
+    
         author = request.args.get("author")
         thesis = request.args.get("thesis")
         keywords = request.args.get("keywords")
@@ -85,9 +85,9 @@ def search():
         if len(author):
             nonon_params.append(("authors",  author))
         if len(thesis):
-            nonon_params.append({"title": thesis})
+            nonon_params.append(("title", thesis))
         if len(keywords):
-            nonon_params.append("keywords", keywords)
+            nonon_params.append(("keywords", keywords))
         
         if len(nonon_params) == 0:
             res["state"] = {
@@ -97,7 +97,7 @@ def search():
             return jsonify(res)
         
         else:
-            query = ' '.join(map(lambda  x: "{} ~ '{}' ".\
+            query = ' AND '.join(map(lambda  x: "{} ~ '{}'".\
                     format(x[0], x[1]) , nonon_params))
             
         
@@ -123,7 +123,7 @@ def search():
             try:
                 while True:
                     i = next(tmp)
-                    print(i.title)
+                    
                     
                 #db.session.add(
                 #    History(
@@ -133,7 +133,7 @@ def search():
                 #)
                     if  len(str(i.authors)) < 100:
                         authors = (i.authors).replace("\u00a0", "").replace("\"\"","").split(",")
-                        print(authors)
+                        #print(authors)
                         res["data"].append(
                             {
                             "id": i.id,
