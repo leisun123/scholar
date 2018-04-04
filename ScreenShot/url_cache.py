@@ -13,7 +13,7 @@ import re
 
 import redis
 
-from db.SqlHelper import *
+from db import *
 
 redis_obj = redis.Redis(host='localhost', port=6379, db=10)
 

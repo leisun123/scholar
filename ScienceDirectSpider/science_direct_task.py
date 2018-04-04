@@ -20,7 +20,7 @@ from multiprocessing import Pool as multi_pool
 import queue
 import requests
 from BaseModule.science_direct_parser import ScienceDirectClass
-from db.SqlHelper import SqlHelper
+from db import SqlHelper
 from utils.timer import Timer
 from utils.selenuim_parser import SelenuimParser
 from ScholarConfig.config import get_user_agent

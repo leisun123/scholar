@@ -24,7 +24,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship, backref
 from ScholarConfig.config import DB_CONFIG,create_ssh_tunnel
 import simplejson
-from db.ISqlHelper import ISqlHelper
+from db import ISqlHelper
 from uuid import uuid4
 
 from utils.logger import get_logger
@@ -291,27 +291,6 @@ class SqlHelper(ISqlHelper):
              for i,j in ipprort:
                  f.writelines("{}:{}\n".format(i.replace('\'',''),j))
     
-    #生产库慎用
-    def parser_data_delete(self):
-        result = iter(self.session.query(User).outerjoin(UserGroup,User.password.like("bcr%")).all())
-        try:
-            while True:
-                i = next(result)
-                try:
-                    self.session.query(Object.id)
-                    self.session.query(Object).filter(Object.id == i.object_id).delete()
-                    self.session.query(ObjectAttribute).filter(ObjectAttribute.object_id == i.object_id).delete()
-                    self.session.query(UserGroup).filter(UserGroup.user_id == i.id).delete()
-                    self.session.query(User).filter(User.id ==  i.id).delete()
-                    self.session.commit()
-                    self.logger.info("deleted {}".format(i.name))
-                except exc.SQLAlchemyError as e:
-                    self.logger.error("{} delete fail! Caused by{}".format(i.id,e))
-                    self.session.rollback()
-        except StopIteration:
-            self.logger.info("Finish")
-        finally:
-            self.session.close()
     
     
     def local_migrate(self):
@@ -447,27 +426,7 @@ class SqlHelper(ISqlHelper):
     
 if __name__ == '__main__':
     sqlhelper = SqlHelper(logger=get_logger("test"))
-    # sqlhelper.organization_clean(old_id=10, modify_id=13)
-    # res = sqlhelper.session.query(User).filter(User.organization==None).all()
-    # for i in res:
-    #     try:
-    #         sqlhelper.session.query(User).filter(User.id==i.id).update({
-    #         "organization": "Unknown",
-    #         "organization_id": 13
-    #         })
-    #         print("Finish One")
-    #     except Exception as e:
-    #         print(e)
-    # sqlhelper.session.commit()
-    # res = sqlhelper.session.query(User).filter(User.scope =='').all()
-    # res2 =sqlhelper.session.query(Organization).all()
-    # res3 = [i.id for i in res2]
-    # count = 0
-    # for i in res:
-    #     if i.organization_id not in res3:
-    #         print(i.organization_id)
-    #         count = count + 1
-    # print(count)
+
     
     
     # count = 0

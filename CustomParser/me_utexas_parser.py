@@ -21,7 +21,7 @@ from lxml import etree
 
 from BaseModule.ThesisClass import ThesisInfo
 from ErrorHandle.parse_error import except_pass
-from db.SqlHelper import SqlHelper
+from db import SqlHelper
 from utils.connection import extract
 from ScholarConfig.me_utexas_rule import RULES
 from TaskFeed.me_utexas_task import MeUtexasTask

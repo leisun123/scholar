@@ -19,7 +19,7 @@ import gevent
 
 from gevent.pool import Pool
 from gevent.queue import Queue
-from db.SqlHelper import SqlHelper
+from db import SqlHelper
 from ScholarConfig.config import CRWAL_POOL_SIZE
 from utils.proxy_manager import ProxyManager
 from utils.logger import get_logger
